@@ -1,0 +1,9 @@
+{
+    "build": {
+        "dockerfile": "./Dockerfile",
+        "context": "."
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/rust:1": "latest"
+    }
+}
