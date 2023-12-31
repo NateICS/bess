@@ -1,1 +1,1 @@
-# FROM rust:latest
+FROM rust:latest
