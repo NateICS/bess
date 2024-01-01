@@ -1,3 +1,7 @@
+mod setup;
+mod evaluate;
+
 fn main() {
-    println!("Hello, world!");
+    let board = setup::Board::new();
+    println!("{}", evaluate::evaluate(board));
 }
