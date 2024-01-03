@@ -32,4 +32,50 @@ impl Board {
             black_king: 1 << 60,
         }
     }
+
+    pub fn print(&self) {
+        let mut board = String::new();
+
+        for rank in (0..8).rev() {
+            print!("{}   ", 8 - rank);
+
+            for file in 0..8 {
+                let square = rank * 8 + file;
+
+                let piece: char = if self.white_pawns & (1 << square) != 0 {
+                    'P'
+                } else if self.white_knights & (1 << square) != 0 {
+                    'N'
+                } else if self.white_bishops & (1 << square) != 0 {
+                    'B'
+                } else if self.white_rooks & (1 << square) != 0 {
+                    'R'
+                } else if self.white_queens & (1 << square) != 0 {
+                    'Q'
+                } else if self.white_king & (1 << square) != 0 {
+                    'K'
+                } else if self.black_pawns & (1 << square) != 0 {
+                    'p'
+                } else if self.black_knights & (1 << square) != 0 {
+                    'n'
+                } else if self.black_bishops & (1 << square) != 0 {
+                    'b'
+                } else if self.black_rooks & (1 << square) != 0 {
+                    'r'
+                } else if self.black_queens & (1 << square) != 0 {
+                    'q'
+                } else if self.black_king & (1 << square) != 0 {
+                    'k'
+                } else {
+                    '.'
+                };
+
+                print!("{} ", piece);
+            }
+
+            println!()
+        }
+
+        println!("\n    A B C D E F G H");
+    }
 }
