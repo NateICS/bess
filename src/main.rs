@@ -5,19 +5,18 @@ use evaluate::evaluate;
 use setup::Board;
 
 fn main() {
-    let board = Board::new();
-
-    // println!("{}", evaluate(board));
+    let mut board = Board::new();
 
     loop {
-        let mut coord = String::new();
+        board.print();
+
+        let mut instruction = String::new();
         std::io::stdin()
-            .read_line(&mut coord)
+            .read_line(&mut instruction)
             .expect("Failed to read line.");
 
-        let coord = coord.trim();
+        let instruction = instruction.trim();
 
-        println!("{}", coord);
-        board.print();
+        board.move_piece(instruction);
     }
 }
